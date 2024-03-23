@@ -7,6 +7,7 @@
       <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       
       <link rel="stylesheet" type="text/css" href="index.css">
@@ -82,24 +83,28 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
                   <form id="changePswd" method="post">
                      <div class="col-12">
-                        <label for="inputEmailAddress" name="email" class="form-label">old Password</label>
-                        <input type="email" class="form-control" id="loginemail" placeholder="Please Enter the old password" required>
+                        <input type="password" class="form-control" id="OldPswd" placeholder="Type Old password" required>
+                        <br>
                      </div>
                      <div class="col-12">
-                        <label for="inputPassword" name="password" class="form-label">Change Password</label>
-                        <input type="password" class="form-control" id="loginpassword" placeholder="Please Enter the new password" minlength="8" required>
+                        <input type="password" class="form-control" id="NewPswd" placeholder="Type New password" minlength="8" required>
+                        <br>
                      </div>
-                     <br>
-                     <input type="submit" class="btn btn-primary" value="confirm">
+                     <div class="col-12">
+                        <input type="password" class="form-control" id="ConfirmPswd" placeholder="Re-Type new password" minlength="8" required>
+                        <br>
+                     </div>
+                     <input type="submit" class="btn btn-primary" value="Update Password">
                   </form>
                </div>
                <div class="modal-footer">
+                  <span id="changeError"></span>
                </div>
             </div>
          </div>
@@ -129,9 +134,6 @@
                   <li class="nav-item d-none checkmenu">
                      <a class="nav-link text-info" href="#">DashBoard</a>
                   </li>
-                  <li class="nav-item d-none checkmenu">
-                     <a class="nav-link text-info" href="#">Logout</a>
-                  </li>
                </ul>
                   
                <form class="d-flex ms-auto" id="LogInSignUpbtn">
@@ -147,6 +149,7 @@
                <form class="d-flex ms-auto d-none" id="ShowUserName">
                   <div class="dropdown">
                      <span id="logname"></span>
+                     <a class="btn btn-info" href="logout.php">Logout</a>
                      </div>
                </form>
             </div>
@@ -160,21 +163,21 @@
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
          </div>
          <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active"class="carousal">
                <img src="plygrd.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
                   <h5 style="color:black">School play ground</h5>
                   <p style="color:black">every student must play game</p>
                </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" class="carousal">
                <img src="clgpic.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
                   <h5>Second slide label</h5>
                   <p>Some representative placeholder content for the second slide.</p>
                </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" class="carousal">
                <img src="plygrd.jpg" class="d-block w-100" alt="...">
                <div class="carousel-caption d-none d-md-block">
                   <h5>Third slide label</h5>
@@ -191,26 +194,105 @@
          <span class="visually-hidden">Next</span>
          </button>
       </div>
-      <div class="alert alert-primary d-flex align-items-center" role="alert">
-         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-         </svg>
-         <div>
-            An example alert with an icon
+      
+      <div class="container d-none" id="card-box">
+         <div class="row">
+           <div class="col-md-4">
+             <div class="card shadow">
+               <div class="card-body">
+                 <i class="fa fa-user-plus shadow" aria-hidden="true"></i>
+                 <p class="card-text">You can add student through this section as a admin.</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#stdmodel">Add Student</button>
+               </div>
+             </div>
+           </div>
+           <div class="col-md-4">
+             <div class="card shadow">
+               <div class="card-body">                 
+                 <i class="fa fa-eye shadow " aria-hidden="true"></i>
+                 <p class="card-text">You can view student details through this section as a admin.</p>
+                 <a href="#" class="btn btn-primary" onclick="showStuDetails()">View Students</a>
+               </div>
+             </div>
+           </div>
+           <div class="col-md-4">
+             <div class="card shadow">
+               <div class="card-body">                 
+                 <i class="fa fa-file-text-o shadow" aria-hidden="true"></i>
+                 <p class="card-text">You can view student details through this section as a admin.</p>
+                 <a href="#" class="btn btn-primary">View results</a>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+<!-----------students Detail------>
+      <div id="stu-details" class="d-none">
+         <div class="container shadow embed-responsive">
+           <iframe class="container embed-responsive-item" src="dashboard.html"></iframe>
          </div>
       </div>
-      <script type="text/javascript">
-         validateSession();
+<!-----student add details------>
+       <div class="modal fade" id="stdmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add Student Detail</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form id="stu-detail" method="post">
+                    <div class="form-row">
+                      <div class=" col-md-6">
+                        <input type="text" class="form-control" id="StudentName" placeholder="student name" required>
+                      </div>
+                      <br>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" id="ParentName" placeholder="parents name" required>
+                      </div>
+                      <br>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="HomeAddress" placeholder="Enter the home address" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter the phone Number" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="EmailAddress" placeholder="Enter the parent email address" required>
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                      <input type="password" class="form-control" id="Password" placeholder="Enter the password" required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Add</button>
 
+                  </form>
+            </div>
+         </div>
+      </div>
+
+      <script type="text/javascript">
+         function showStuDetails(){
+            $('#stu-details').removeClass('d-none');
+         }
+         function AddStuDetails(){
+            $('#stu-details').addClass('d-none');
+            $('#stuModel').modal('show');
+
+
+         }
+         validateSession();
+         /*------------------signup logic----------------*/
          $(document).on('submit','#SignUp',function(e){
              e.preventDefault();
              var fname=$('#FirstName').val();
              var lname=$('#LastName').val();
              var email=$('#signupEmail').val();
              var pwd=$('#signupPassword').val();
-             console.log(fname);
-             console.log(lname);
-             console.log(email);
              $.ajax({
              method:"POST",
              url: "SignUp.php",
@@ -236,6 +318,7 @@
          });
 
          });
+         /*----------------login logic--------------------*/
          $(document).on('submit','#login',function(e){
              e.preventDefault();
              var email=$('#loginemail').val();
@@ -292,6 +375,7 @@
             $('#errorMsg').slideDown(1000); 
          }
 
+
          function validateSession(){
             $.ajax({
              method:"GET",
@@ -304,12 +388,98 @@
                   $('.homemenu').addClass('d-none');
                   $('.checkmenu').removeClass('d-none');
                   $("#logInModal").modal('hide');
-                  $('#logname').text("Hello, "+data);          
+                  $('#logname').text("Hello, "+data);
+                  $('#carouselExampleCaptions').hide();  
+                  $('#card-box').removeClass('d-none');      
                 }
      
               }
             });
          }
+
+         /*-------------change password------------------*/
+          $(document).on('submit','#changePswd',function(e){
+             e.preventDefault();
+             var OldPswd=$('#OldPswd').val();
+             var NewPswd=$('#NewPswd').val();
+             var ConPswd=$('#ConfirmPswd').val();
+             if(ConPswd===NewPswd)
+             {
+
+                 $.ajax({
+                method:"POST",
+                url: "changePassword.php",
+                data:{
+                  "OldPassword":OldPswd,
+                  "NewPassword":NewPswd,
+               },
+                success: function(data)
+                {
+               
+                   if(data != 'Error') {
+                        $('#changeError').text("done");
+                        $('#changeError').slideDown(1000); 
+
+                   } 
+                   else {
+                        $('#changeError').text("error in password");
+                   }
+
+        
+               }
+
+               });
+
+            }
+         else
+         {
+             $('#changeError').text("new password and confirm password is not same");
+             $('#changeError').slideDown(1000); 
+         }
+
+         });
+/*---------add student details------------*/
+         $(document).on('submit','#stu-detail',function(e){
+             e.preventDefault();
+             var stdname=$('#StudentName').val();
+             var parname=$('#ParentName').val();
+             var homeaddress=$('#HomeAddress').val();
+             var phonenumber=$('#PhoneNumber').val();
+             var email=$('#EmailAddress').val();
+             var pwd=$('#Password').val();
+             console.log(stdname);
+             console.log(parname);
+             console.log(phonenumber);
+             console.log(email);
+             console.log(pwd);
+             $.ajax({
+             method:"POST",
+             url: "AddStudent.php",
+             data:{
+               "StudentName":stdname,
+               "ParentName":parname,
+               "HomeAddress":homeaddress,
+               "PhoneNumber":phonenumber,
+               "Email":email,
+               "Password":pwd
+
+            },
+             success: function(data){
+            
+                if(data != 'Error') { 
+                  $("#stdmodel").modal('hide');
+
+                    
+                } else {
+                    $('#msg').html(data);
+                }
+
+     
+            }
+
+         });
+
+         });
       </script>
    </body>
 </html>
