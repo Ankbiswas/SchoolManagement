@@ -4,7 +4,7 @@
 	$users=array();
 
 
-   $sql="select * from signupdata"; 
+   $sql="select * from addstudent"; 
    $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();

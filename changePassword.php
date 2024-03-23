@@ -1,16 +1,20 @@
-<?
+<?php
   include("connector.php");
-  $NewPswd=$_POST["npwd"];
-  $OldPswd=$_POST["opwd"];
-  $sql="select password from signupdata where password='$OldPswd'";
-  $stmt = $conn->prepare($sql);
-  $stmt->execute();
-  $result = $stmt->get_result();
-  if($result->num_rows==1)
-  {
-  	$sqlchange="update signupdata set password='$NewPswd' where password='$OldPswd'";
-  	$stmt = $conn->prepare($sql);
-  	$stmt->execute();
-  }
+  $NewPswd=md5($_POST["NewPassword"]);
+  $OldPswd=md5($_POST["OldPassword"]);
+  session_start();
+  if (isset($_SESSION["emailId"])) {
+    $email = $_SESSION["emailId"];
+    $sql="update signupdata set password = ? where password = ? and email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $NewPswd, $OldPswd, $email);
+    if($stmt->execute()==1)
+    {
+      echo "Success";
+    }
+    else{
+      echo "Error";
+    }
+}
 
 ?>
