@@ -220,7 +220,7 @@
                <div class="card-body">                 
                  <i class="fa fa-file-text-o shadow" aria-hidden="true"></i>
                  <p class="card-text">You can view student details through this section as a admin.</p>
-                 <a href="#" class="btn btn-primary">View results</a>
+                 <a href="#" class="btn btn-primary" onclick="showResultDetails()">View results</a>
                </div>
              </div>
            </div>
@@ -229,9 +229,15 @@
 <!-----------students Detail------>
       <div id="stu-details" class="d-none">
          <div class="container shadow embed-responsive">
-           <iframe class="container embed-responsive-item" src="dashboard.html"></iframe>
+           <iframe class="container embed-responsive-item" src="dashboard.html" height="200px"></iframe>
          </div>
       </div>
+<!---------------student status-------->
+        <div id="stu-result" class="d-none">
+         <div class="container shadow embed-responsive">
+           <iframe class="container embed-responsive-item" src="result.html" height="200px"></iframe>
+         </div>
+      </div>     
 <!-----student add details------>
        <div class="modal fade" id="stdmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
@@ -278,9 +284,15 @@
       <script type="text/javascript">
          function showStuDetails(){
             $('#stu-details').removeClass('d-none');
+            $('#stu-result').addClass('d-none');
+         }
+         function showResultDetails(){
+            $('#stu-result').removeClass('d-none');
+             $('#stu-details').addClass('d-none');
          }
          function AddStuDetails(){
             $('#stu-details').addClass('d-none');
+            $('#stu-result').addClass('d-none');
             $('#stuModel').modal('show');
 
 
@@ -305,7 +317,7 @@
              success: function(data){
             
                 if(data != 'Error') { 
-                  $("#exampleModal2").model('hide');
+                  $("#exampleModal2").modal('hide');
 
                     
                 } else {
