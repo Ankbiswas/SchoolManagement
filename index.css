@@ -52,12 +52,42 @@
 	border-radius:50%;
 
 }
-#stu-details{
+#stu-details,#stu-result{
 	margin-top:50px;
 }
-#stu-details div{
+#stu-details div,#stu-result div{
 	border:1px solid #dedede;
+	padding-top:30px;
 }
 #stu-detail input{
 	border-left: none;
+}
+#indicator{
+	padding:3px 3px;
+	boder-radius:3px;
+	color:white;
+}
+.passStatus{
+	width:60px;
+	padding:10px;
+	box-sizing: border-box;
+	display:block;
+	text-align:center;
+	color:white;
+	background-color: green;
+	text-transform: uppercase;
+	border-radius:4px;
+
+}
+.failStatus{
+	width:60px;
+	padding:10px;
+	box-sizing: border-box;
+	display:block;
+	text-align:center;
+	color:white;
+	background-color: red;
+	text-transform: uppercase;
+	border-radius:4px;
+
 }

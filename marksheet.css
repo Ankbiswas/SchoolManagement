@@ -1,0 +1,28 @@
+html,body{
+	font-family:arial;
+}
+table{
+	margin:auto;
+	padding: auto;
+	border-collapse: collapse;
+	height:400px;
+	width:50%;
+}
+#container h1{
+	text-align:center;
+	font-weight: bold;
+}
+#container p{
+	text-align:center;
+	font-weight: bold;
+	font-size: 20px;
+}
+th{
+	padding:0px 30px;
+}
+span{
+	font-weight: bold;
+}
+td{
+	padding:0 20px;
+}
