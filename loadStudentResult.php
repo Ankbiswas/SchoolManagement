@@ -4,7 +4,7 @@
 	$users=array();
 
 
-   $sql="select stdName,status,examDate from addstudent,resultdetail where resultdetail.id=addstudent.id"; 
+   $sql="select resultdetail.id,stdName,status,examDate from addstudent,resultdetail where resultdetail.id=addstudent.id"; 
    $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
