@@ -62,6 +62,11 @@
 #stu-detail input{
 	border-left: none;
 }
+input[type="file"]
+{
+	display: none;
+}
+
 #indicator{
 	padding:3px 3px;
 	boder-radius:3px;
@@ -89,5 +94,4 @@
 	background-color: red;
 	text-transform: uppercase;
 	border-radius:4px;
-
 }
