@@ -62,13 +62,11 @@
 #stu-detail input{
 	border-left: none;
 }
+<<<<<<< HEAD
 input[type="file"]
 {
 	display: none;
-}
-label{
-	background: skyblue;
-}
+=======
 #indicator{
 	padding:3px 3px;
 	boder-radius:3px;
@@ -96,5 +94,6 @@ label{
 	background-color: red;
 	text-transform: uppercase;
 	border-radius:4px;
-}
 
+>>>>>>> fb79b8d344d12284e3d9e787384d111cb2b21eb7
+}

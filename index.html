@@ -197,7 +197,6 @@
       
       <div class="container d-none" id="card-box">
          <div class="row">
-           <!-------Add student details---------> 
            <div class="col-md-4">
              <div class="card shadow">
                <div class="card-body">
@@ -207,7 +206,6 @@
                </div>
              </div>
            </div>
-           <!-------show student details-------->
            <div class="col-md-4">
              <div class="card shadow">
                <div class="card-body">                 
@@ -217,7 +215,6 @@
                </div>
              </div>
            </div>
-           <!------show to result of list of student------->
            <div class="col-md-4">
              <div class="card shadow">
                <div class="card-body">                 
@@ -227,41 +224,18 @@
                </div>
              </div>
            </div>
-
-           <div class="col-md-4">
-             <div class="card shadow">
-               <div class="card-body">                 
-                 <i class="fa fa-upload" aria-hidden="true"></i>
-                 <p class="card-text">You can upload result</p>
-                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadmodel">upload</button>
-               </div>
-             </div>
-           </div>
         </div>
       </div>
-<!-------upload-------->
-<div class="modal fade" id="uploadmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Upload marks Deta</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-                   <div class="modal-body">
-                     <form id="uploader" method="post" enctype="multipart/form-data">
-                     <input type="file" id="myFile" name="markSheet">
-                      <label for="myFile">Upload file</label>
-                     <input type="submit" class="btn btn-primary">
-                  </form>
-            </div>
-         </div>
-   </div>
-      
-      
+<!-----uploader----->
+      <form id="uploader"action="markSheetFillup.php" method="post" enctype="multipart/form-data">
+         <input type="file" id="myFile" name="markSheet">
+         <label for="uploaderbtn">Upload file</label>
+         <input type="submit">
+      </form>
 <!-----------students Detail------>
       <div id="stu-details" class="d-none">
          <div class="container shadow embed-responsive">
-           <iframe class="container embed-responsive-item" src="dashboard.html"></iframe>
+           <iframe class="container embed-responsive-item" src="dashboard.html" height="200px"></iframe>
          </div>
       </div>
 <!---------------student status-------->
@@ -269,7 +243,11 @@
          <div class="container shadow embed-responsive">
            <iframe class="container embed-responsive-item" src="result.html" height="200px"></iframe>
          </div>
-      </div>                 
+<<<<<<< HEAD
+      </div>         
+=======
+      </div>     
+>>>>>>> fb79b8d344d12284e3d9e787384d111cb2b21eb7
 <!-----student add details------>
        <div class="modal fade" id="stdmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
@@ -280,31 +258,51 @@
                </div>
                <div class="modal-body">
                   <form id="stu-detail" method="post">
-                      <div class="form-row">
+                    <div class="form-row">
                       <div class=" col-md-6">
                         <input type="text" class="form-control" id="StudentName" placeholder="student name" required>
                       </div>
-                        <br>
+                      <br>
                       <div class="col-md-6">
                         <input type="text" class="form-control" id="ParentName" placeholder="parents name" required>
                       </div>
-                        <br>
-                      </div>
-
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="HomeAddress" placeholder="Enter the home address" required>
-                      </div>
-                        <br>
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter the phone Number" required>
-                      </div>
-                        <br>
-                      <div class="form-group">
-                        <input type="email" class="form-control" id="EmailAddress" placeholder="Enter the parent email address" required>
-                      </div>
+                      <br>
+                     <div class="col-md-6">
+                        <input type="text" class="form-control" id="rollnumber" placeholder="enter the roll number" required>
+                     </div>
+                     <br>
+                     <div class="col-md-4">
+                        <select id="classnumber" class="form-control" placeholder="select the class number" required>
+                              <option selected>Class</option>
+                              <option>I</option>
+                              <option>II</option>
+                              <option>III</option>
+                              <option>IV</option>
+                              <option>V</option>
+                              <option>VI</option>
+                              <option>VII</option>
+                              <option>VIII</option>
+                              <option>IX</option>
+                              <option>X</option>
+                              <option>XI</option>
+                              <option>XII</option>
+                        </select>
+                     </div>
+                     <br>
+                     <div class="col-md-4">
+                        <input type="text" class="form-control" id="section" placeholder=" section" required>
+                     </div>
+                     <br>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="HomeAddress" placeholder="Enter the home address" required>
+                    </div>
                     <br>
-                    <div class="col-md-6">
-                      <input type="password" class="form-control" id="Password" placeholder="Enter the password" required>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter the phone Number" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="EmailAddress" placeholder="Enter the parent email address" required>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary">Add</button>
@@ -313,7 +311,30 @@
             </div>
          </div>
       </div>
-   </div>
+<<<<<<< HEAD
+=======
+
+      <div class="modal" id="markSheet" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">MarksSheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+>>>>>>> fb79b8d344d12284e3d9e787384d111cb2b21eb7
       <script type="text/javascript">
          function showStuDetails(){
             $('#stu-details').removeClass('d-none');
@@ -327,6 +348,13 @@
             $('#stu-details').addClass('d-none');
             $('#stu-result').addClass('d-none');
             $('#stuModel').modal('show');
+<<<<<<< HEAD
+=======
+         }
+         function loadResult(){
+            alert("hello world");
+
+>>>>>>> fb79b8d344d12284e3d9e787384d111cb2b21eb7
          }
          validateSession();
          /*------------------signup logic----------------*/
@@ -348,7 +376,7 @@
              success: function(data){
             
                 if(data != 'Error') { 
-                  $("#exampleModal2").model('hide');
+                  $("#exampleModal2").modal('hide');
 
                     
                 } else {
@@ -418,7 +446,7 @@
             $('#errorMsg').slideDown(1000); 
          }
 
-/*---------validation session logic------------*/
+
          function validateSession(){
             $.ajax({
              method:"GET",
@@ -486,25 +514,32 @@
              e.preventDefault();
              var stdname=$('#StudentName').val();
              var parname=$('#ParentName').val();
-             var homeaddress=$('#HomeAddress').val();
+              var rollnumber=$('#rollnumber').val();
+              var classnumber=$('#classnumber').val();
+              var classSection=$('#section').val();
+              var homeaddress=$('#HomeAddress').val();
              var phonenumber=$('#PhoneNumber').val();
              var email=$('#EmailAddress').val();
-             var pwd=$('#Password').val();
              console.log(stdname);
              console.log(parname);
+             console.log(rollnumber);
+             console.log(classnumber);
+             console.log(classSection);
+             console.log(homeaddress);
              console.log(phonenumber);
              console.log(email);
-             console.log(pwd);
              $.ajax({
              method:"POST",
              url: "AddStudent.php",
              data:{
                "StudentName":stdname,
                "ParentName":parname,
+               "RollNumber":rollnumber,
+               "ClassNumber":classnumber,
+               "ClassSection":classSection,
                "HomeAddress":homeaddress,
                "PhoneNumber":phonenumber,
-               "Email":email,
-               "Password":pwd
+               "Email":email
 
             },
              success: function(data){
@@ -523,27 +558,6 @@
          });
 
          });
-
-/*------------upload logic-------------*/
-         $(document).on('submit','#uploader',function(e){
-             e.preventDefault();
-              var file_data = $('#myFile').prop('files')[0];   
-                var form_data = new FormData();                  
-                form_data.append('markSheet', file_data);
-                alert(form_data);                             
-                $.ajax({
-                    url: 'markSheetFillup.php', // <-- point to server-side PHP script 
-                    dataType: 'text',  // <-- what to expect back from the PHP script, if anything
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: form_data,                         
-                    type: 'post',
-                    success: function(php_script_response){
-                        alert(php_script_response); // <-- display response from the PHP script, if any
-                    }
-                 });
-            });
       </script>
    </body>
 </html>
